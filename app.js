@@ -17,6 +17,7 @@ const courseRouter = require('./routes/course');
 const organizerRouter = require('./routes/organizer');
 const roleRouter = require('./routes/role');
 const memberRouter = require('./routes/member');
+const periodRouter = require('./routes/period')
 
 const oprecRouter = require('./routes/oprec');
 
@@ -40,6 +41,7 @@ app.use('/courses', courseRouter);
 app.use('/organizers', organizerRouter);
 app.use('/roles', roleRouter);
 app.use('/members', memberRouter);
+app.use('/periods', periodRouter);
 
 app.use('/oprec', oprecRouter);
 
