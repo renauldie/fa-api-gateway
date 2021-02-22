@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 //media
 const mediaRouter = require('./routes/media');
 //college
@@ -17,7 +16,9 @@ const courseRouter = require('./routes/course');
 const organizerRouter = require('./routes/organizer');
 const roleRouter = require('./routes/role');
 const memberRouter = require('./routes/member');
-const periodRouter = require('./routes/period')
+const periodRouter = require('./routes/period');
+//user
+const usersRouter = require('./routes/users');
 
 const oprecRouter = require('./routes/oprec');
 
@@ -29,7 +30,6 @@ app.use(express.urlencoded({ extended: false, limit: '50mb' }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 //media
 app.use('/media', mediaRouter);
 //college
@@ -42,6 +42,9 @@ app.use('/organizers', organizerRouter);
 app.use('/roles', roleRouter);
 app.use('/members', memberRouter);
 app.use('/periods', periodRouter);
+
+//user
+app.use('/users', usersRouter);
 
 app.use('/oprec', oprecRouter);
 
