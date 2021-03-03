@@ -13,20 +13,19 @@ const api = apiAdapter(URL_SERVICE_USER);
 module.exports = async (req, res) => {
 	try {
 		const user = await api.post('/users/login', req.body);
-		const data = user.data.data;
-		const dataNpm = user.data.u;
+		const data = user.data.main_data;
 
-		const token = jwt.sign({ data, dataNpm }, JWT_SECRET, {
+		const token = jwt.sign({ data }, JWT_SECRET, {
 			expiresIn: JWT_ACCESS_TOKEN_EXPIRED,
 		});
 
-		const refreshToken = jwt.sign({ data, dataNpm }, JWT_SECRET_REFRESH_TOKEN, {
+		const refreshToken = jwt.sign({ data }, JWT_SECRET_REFRESH_TOKEN, {
 			expiresIn: JWT_REFRESH_TOKEN_EXPIRED,
 		});
 
 		await api.post('/refresh-tokens', {
 			refresh_token: refreshToken,
-			npm: dataNpm,
+			npm: data.npm,
 		});
 
 		return res.json({
@@ -36,8 +35,6 @@ module.exports = async (req, res) => {
 				refresh_token: refreshToken,
 			},
 		});
-
-		// return res.json(dataNpm);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
 			return res
