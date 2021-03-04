@@ -19,8 +19,10 @@ const memberRouter = require('./routes/member');
 const periodRouter = require('./routes/period');
 //user
 const usersRouter = require('./routes/users');
-
+const refreshTokenRouter = require('./routes/refreshTokens');
 const oprecRouter = require('./routes/oprec');
+
+const verifyToken = require('./middleware/verifyToken');
 
 const app = express();
 
@@ -34,18 +36,18 @@ app.use('/', indexRouter);
 app.use('/media', mediaRouter);
 //college
 app.use('/faculties', facultyRouter);
-app.use('/deans', deanRouter);
+app.use('/deans', verifyToken, deanRouter);
 app.use('/study-programs', studyPrograms);
 app.use('/courses', courseRouter);
 //organizer
-app.use('/organizers', organizerRouter);
-app.use('/roles', roleRouter);
-app.use('/members', memberRouter);
-app.use('/periods', periodRouter);
+app.use('/organizers', verifyToken, organizerRouter);
+app.use('/roles', verifyToken, roleRouter);
+app.use('/members', verifyToken, memberRouter);
+app.use('/periods', verifyToken, periodRouter);
 
 //user
 app.use('/users', usersRouter);
-
+app.use('/refresh-tokens', refreshTokenRouter);
 app.use('/oprec', oprecRouter);
 
 module.exports = app;
