@@ -5,8 +5,8 @@ const userHandler = require('./handler/users');
 const verifyToken = require('../middleware/verifyToken');
 
 router.post('/login', userHandler.login);
-router.post('/logout', userHandler.logout);
 router.put('/', verifyToken, userHandler.update);
 router.get('/', verifyToken, userHandler.getUser);
+router.post('/logout', verifyToken, userHandler.logout);
 
 module.exports = router;

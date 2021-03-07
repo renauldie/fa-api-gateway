@@ -7,5 +7,6 @@ module.exports = {
 	login,
 	logout,
 	getUser,
-	update
+	update,
+	logout
 };
