@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const verifyToken = require('../middleware/verifyToken');
 
-const studyPrograms = require('./handler/study-programs');
+const studyPrograms = require('./handler/college/study-programs');
 
 router.get('/', studyPrograms.getAll);
 router.get('/:id', studyPrograms.get);

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const verifyToken = require('../middleware/verifyToken');
-const facultyHandler = require('./handler/faculties');
+const facultyHandler = require('./handler/college/faculties');
 
 router.get('/', facultyHandler.getAll);
 router.get('/:id', facultyHandler.get);

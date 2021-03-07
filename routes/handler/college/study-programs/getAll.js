@@ -1,12 +1,11 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const { URL_SERVICE_COLLEGE } = process.env;
 
 const api = apiAdapter(URL_SERVICE_COLLEGE);
 
 module.exports = async (req, res) => {
 	try {
-    const id = req.params.id;
-		const studyPrograms = await api.get(`/api/study-programs/${id}`);
+		const studyPrograms = await api.get('/api/study-programs');
 		return res.json(studyPrograms.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {

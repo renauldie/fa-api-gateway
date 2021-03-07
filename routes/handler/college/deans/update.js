@@ -1,4 +1,4 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const { URL_SERVICE_COLLEGE } = process.env;
 
 const api = apiAdapter(URL_SERVICE_COLLEGE);

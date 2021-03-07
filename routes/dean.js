@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const facultyHandler = require('./handler/deans');
+const deanHandler = require('./handler/college/deans');
 
-router.get('/', facultyHandler.getAll);
-router.get('/:id', facultyHandler.get);
-router.post('/', facultyHandler.create);
-router.put('/:id', facultyHandler.update);
-router.delete('/:id', facultyHandler.destroy);
+router.get('/', deanHandler.getAll);
+router.get('/:id', deanHandler.get);
+router.post('/', deanHandler.create);
+router.put('/:id', deanHandler.update);
+router.delete('/:id', deanHandler.destroy);
 
 module.exports = router;
