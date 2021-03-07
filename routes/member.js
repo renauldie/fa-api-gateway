@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const memberHandler = require('./handler/members');
+const memberHandler = require('./handler/organizer/members');
 
 router.get('/:id', memberHandler.get);
 router.get('/', memberHandler.getAll);

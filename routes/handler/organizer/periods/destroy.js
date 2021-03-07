@@ -1,4 +1,4 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const { URL_SERVICE_ORGANIZER } = process.env;
 
 const api = apiAdapter(URL_SERVICE_ORGANIZER);
@@ -6,8 +6,8 @@ const api = apiAdapter(URL_SERVICE_ORGANIZER);
 module.exports = async (req, res) => {
 	try {
 		const id = req.params.id;
-		const role = await api.put(`/api/roles/${id}`, req.body);
-		return res.json(role.data);
+		const period = await api.delete(`/api/periods/${id}`, req.body);
+		return res.json(period.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
 			return res.status(500).json({

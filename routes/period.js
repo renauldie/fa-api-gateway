@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const { APP_NAME } = process.env;
 
-const periodHandler = require('./handler/periods');
+const periodHandler = require('./handler/organizer/periods');
 
 router.get('/:id', periodHandler.get);
 router.get('/', periodHandler.getAll);

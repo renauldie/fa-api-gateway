@@ -1,11 +1,12 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const { URL_SERVICE_ORGANIZER } = process.env;
 
 const api = apiAdapter(URL_SERVICE_ORGANIZER);
 
 module.exports = async (req, res) => {
 	try {
-		const role = await api.post('/api/roles', req.body);
+		const id = req.params.id;
+		const role = await api.get(`/api/roles/${id}`);
 		return res.json(role.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {

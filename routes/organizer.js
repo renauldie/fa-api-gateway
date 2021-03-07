@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const organizerHandler = require('./handler/organizers');
+const organizerHandler = require('./handler/organizer/organizers');
 
 router.get('/', organizerHandler.getAll);
 router.get('/:id', organizerHandler.get);

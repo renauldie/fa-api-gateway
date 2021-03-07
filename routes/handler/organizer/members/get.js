@@ -1,13 +1,13 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const { URL_SERVICE_ORGANIZER } = process.env;
 
 const api = apiAdapter(URL_SERVICE_ORGANIZER);
 
 module.exports = async (req, res) => {
 	try {
-		const id = req.params.id;
-		const organizer = await api.get(`/api/organizers/${id}`);
-		return res.json(organizer.data);
+    const id = req.params.id;
+		const member = await api.get(`/api/members/${id}`, req.body);
+		return res.json(member.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
 			return res.status(500).json({
