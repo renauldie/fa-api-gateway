@@ -1,4 +1,4 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const jwt = require('jsonwebtoken');
 const {
 	URL_SERVICE_USER,

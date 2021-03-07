@@ -1,4 +1,4 @@
-const apiAdapter = require('../../apiAdapter');
+const apiAdapter = require('../../../apiAdapter');
 const { URL_SERVICE_USER } = process.env;
 
 const api = apiAdapter(URL_SERVICE_USER);
@@ -6,8 +6,11 @@ const api = apiAdapter(URL_SERVICE_USER);
 module.exports = async (req, res) => {
 	try {
 		const id = req.user.data.id;
-		const user = await api.get(`/users/${id}`);
+		const user = await api.put(`/users/${id}`, req.body);
 		return res.json(user.data);
+
+		// checking decoded jwt :)
+		// return res.json(req.user);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
 			return res
