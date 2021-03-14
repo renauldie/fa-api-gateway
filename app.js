@@ -37,14 +37,14 @@ app.use('/', indexRouter);
 app.use('/media', mediaRouter);
 //college
 app.use('/faculties', facultyRouter);
-app.use('/deans', verifyToken, deanRouter);
+app.use('/deans', deanRouter);
 app.use('/study-programs', studyPrograms);
 app.use('/courses', courseRouter);
 //organizer
-app.use('/organizers', verifyToken, organizerRouter);
-app.use('/roles', verifyToken, roleRouter);
-app.use('/members', verifyToken, memberRouter);
-app.use('/periods', verifyToken, periodRouter);
+app.use('/organizers', organizerRouter);
+app.use('/roles', roleRouter);
+app.use('/members', memberRouter);
+app.use('/periods', periodRouter);
 
 //user
 app.use('/users', usersRouter);

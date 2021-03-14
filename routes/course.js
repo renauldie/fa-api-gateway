@@ -6,7 +6,8 @@ const courseHandler = require('./handler/college/courses');
 
 router.get('/', courseHandler.getAll);
 router.get('/:id', courseHandler.get);
-router.post('/', verifyToken, courseHandler.create);
+router.post('/', courseHandler.create);
+// router.post('/', verifyToken, courseHandler.create);
 router.put('/:id', verifyToken, courseHandler.update);
 router.delete('/:id', verifyToken, courseHandler.destroy);
 
