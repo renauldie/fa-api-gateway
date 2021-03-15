@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
-const { APP_NAME } = process.env;
+const express = require('express');
+const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-	res.send('oprec');
-});
+const oprecHandler = require('./handler/event/oprec');
+
+router.get('/', oprecHandler.get);
+router.post('/', oprecHandler.create);
+router.put('/:id', oprecHandler.update);
+router.delete('/:id', oprecHandler.destroy);
 
 module.exports = router;
