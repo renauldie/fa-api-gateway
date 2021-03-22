@@ -19,7 +19,8 @@ const memberRouter = require('./routes/member');
 const periodRouter = require('./routes/period');
 //event {oprec}
 const oprecRouter = require('./routes/oprec');
-const offeredCourseRouter = require('./routes/offered-course');
+const offeredCourseRouter = require('./routes/offeredCourse');
+const selectedCourseRouter = require('./routes/selectedCourse');
 //user
 const usersRouter = require('./routes/users');
 const refreshTokenRouter = require('./routes/refreshTokens');
@@ -47,10 +48,10 @@ app.use('/organizers', organizerRouter);
 app.use('/roles', roleRouter);
 app.use('/members', memberRouter);
 app.use('/periods', periodRouter);
-
 //event {oprec}
 app.use('/oprec', oprecRouter);
 app.use('/offered-courses', offeredCourseRouter);
+app.use('/user-course', selectedCourseRouter);
 //user
 app.use('/users', usersRouter);
 app.use('/refresh-tokens', refreshTokenRouter);

@@ -1,16 +1,18 @@
 const apiAdapter = require('../../../apiAdapter');
-const { URL_SERVICE_USER } = process.env;
+const { URL_SERVICE_EVENT } = process.env;
 
-const api = apiAdapter(URL_SERVICE_USER);
+const api = apiAdapter(URL_SERVICE_EVENT);
 
 module.exports = async (req, res) => {
 	try {
-		const id = rq.user.data.id;
-		const user = await api.put(`/users/${id}`, req.body);
-		return res.json(user.data);
+		const userId = req.user.data.id;
 
-		// checking decoded jwt :)
-		// return res.json(req.user);
+		const id = req.params.id;
+		const userCourses = await api.delete(`/api/user-courses/${id}`, {
+			user_id: userId,
+		});
+
+		return res.json(userCourses.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
 			return res
