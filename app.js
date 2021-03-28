@@ -21,6 +21,7 @@ const periodRouter = require('./routes/period');
 const oprecRouter = require('./routes/oprec');
 const offeredCourseRouter = require('./routes/offeredCourse');
 const selectedCourseRouter = require('./routes/selectedCourse');
+const eventRouter = require('./routes/event');
 //user
 const usersRouter = require('./routes/users');
 const refreshTokenRouter = require('./routes/refreshTokens');
@@ -52,6 +53,7 @@ app.use('/periods', periodRouter);
 app.use('/oprec', oprecRouter);
 app.use('/offered-courses', offeredCourseRouter);
 app.use('/user-course', selectedCourseRouter);
+app.use('/events', eventRouter);
 //user
 app.use('/users', usersRouter);
 app.use('/refresh-tokens', refreshTokenRouter);
