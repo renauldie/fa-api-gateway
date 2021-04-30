@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
 			}
 
 			if (npm !== decoded.data.npm) {
-				return res.status(403).json({
+				return res.status(400).json({
 					status: 'error',
 					message: 'npm not valid',
 				});
