@@ -1,7 +1,7 @@
 const apiAdapter = require('../../../apiAdapter');
-const { URL_SERVICE_EVENT } = process.env;
+const { URL_SERVICE_COLLEGE } = process.env;
 
-const api = apiAdapter(URL_SERVICE_EVENT);
+const api = apiAdapter(URL_SERVICE_COLLEGE);
 
 module.exports = async (req, res) => {
 	try {
