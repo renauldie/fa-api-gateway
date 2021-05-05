@@ -1,17 +1,18 @@
 const apiAdapter = require('../../../apiAdapter');
-const { URL_SERVICE_EVENT } = process.env;
+const { URL_SERVICE_COLLEGE } = process.env;
 
-const api = apiAdapter(URL_SERVICE_EVENT);
+const api = apiAdapter(URL_SERVICE_COLLEGE);
 
 module.exports = async (req, res) => {
 	try {
-		const oprec = await api.post('/api/oprec', req.body);
+		const oprec = await api.get('/api/oprec/');
 		return res.json(oprec.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
-			return res
-				.status(500)
-				.json({ status: 'error', message: 'service unavailable' });
+			return res.status(500).json({
+				status: 'error',
+				message: 'service unavailable',
+			});
 		}
 
 		const { status, data } = error.response;

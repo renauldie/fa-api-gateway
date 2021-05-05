@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const oprecHandler = require('./handler/event/oprec');
+const oprecHandler = require('./handler/oprec/oprec');
 
 router.get('/', oprecHandler.get);
 router.post('/', oprecHandler.create);

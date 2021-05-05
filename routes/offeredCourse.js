@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const offerdCourseHandler = require('./handler/event/offered-course');
+const offerdCourseHandler = require('./handler/oprec/offered-course');
 
 router.get('/', offerdCourseHandler.getAll);
 router.get('/:id', offerdCourseHandler.get);

@@ -1,13 +1,13 @@
 const apiAdapter = require('../../../apiAdapter');
-const { URL_SERVICE_EVENT } = process.env;
+const { URL_SERVICE_COLLEGE } = process.env;
 
-const api = apiAdapter(URL_SERVICE_EVENT);
+const api = apiAdapter(URL_SERVICE_COLLEGE);
 
 module.exports = async (req, res) => {
 	try {
 		const id = req.params.id;
-		const member = await api.delete(`/api/offered-course/${id}`);
-		return res.json(member.data);
+		const offered = await api.delete(`/api/offered-course/${id}`);
+		return res.json(offered.data);
 	} catch (error) {
 		if (error.code === 'ECONNREFUSED') {
 			return res.status(500).json({
