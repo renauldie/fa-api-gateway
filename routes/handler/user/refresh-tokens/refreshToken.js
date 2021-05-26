@@ -4,7 +4,7 @@ const {
 	URL_SERVICE_USER,
 	JWT_SECRET,
 	JWT_SECRET_REFRESH_TOKEN,
-	JWT_REFRESH_TOKEN_EXPIRED,
+	JWT_ACCESS_TOKEN_EXPIRED,
 } = process.env;
 
 const api = apiAdapter(URL_SERVICE_USER);
@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
 			}
 
 			const token = jwt.sign({ data: decoded.data }, JWT_SECRET, {
-				expiresIn: JWT_REFRESH_TOKEN_EXPIRED,
+				expiresIn: JWT_ACCESS_TOKEN_EXPIRED,
 			});
 
 			return res.json({
